@@ -1,0 +1,299 @@
+<style>.zh_article_container{
+        background-color: whitesmoke;
+        width:100%;
+        margin:0 auto;
+    }
+    .zh_article_container .zh{
+        max-width:1180px;
+    }
+    .zh_article_container .zh{
+        display: flex;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+    .zh_article_container .zh .zhitem{
+        position:relative;
+        border-radius: 10px;
+        padding-left:20px;
+        padding-top:20px;
+    }
+    .zh_article_container .zh .zhitem:nth-child(4n+1){
+        padding-left:0;
+    }
+    .zh_article_container .zh .zhitem .ArticlePicList_ItemContentInner{
+        background-color:white;
+        border-radius:10px;
+        height:100%;
+    }
+    .zh_article_container .zh .zhitem .wzbq{
+        text-align: center;
+        line-height:24px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color:#FFFFFF;
+        font-size:14px;
+        background-color:#E9BD4B;
+        padding:5px;
+        z-index:1;
+        max-width: 50%;
+        word-wrap: break-word;
+        word-break: normal;
+    }
+    .zh_article_container .zh .zhitem .wzbqT{
+        display:none;
+    }
+    .zh_article_container .zh .zhitem .imgcontainer{
+        position:relative;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+    }
+    .zh_article_container .zh .zhitem .imgcontainer img{
+        width: 100%;
+        transition: all 12s;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 12s cubic-bezier(0.23, 1, 0.32, 1);
+        border: none;
+    }
+    .zh_article_container .zhitem-describe,.zh_article_container .container{
+        width:100%!important;
+    }
+    .zh_article_container .zh .zhitem .banner-description{
+        padding:10px 10px 30px 10px;
+        transition: all 0.6s;
+        min-height: 265px;
+    }
+    .zh_article_container .zhitem-docs{
+        text-overflow: -o-ellipsis-lastline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        color:#666666;
+        font-size:14px;
+        margin: 20px 0;
+        transition: all 0.6s;
+        color:#666666;
+    }
+    .zh_article_container .zhitem-name{
+        color:#333333;
+        font-size:18px;
+        transition: all 0.6s;
+    }
+    .zh_article_container .title_container{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-bottom: 0px;
+        transition: all .6s;
+        color: #333;
+        font-size: 16px;
+    }
+    .zh_article_container .ArticlePicList_ItemContentInnerA{
+        font-family:ArialMT ;
+        font-size:14px;
+    }
+    .zh_article_container .ArticlePicList_ItemContentInnerA span{
+        text-decoration:underline;
+        color: #333;
+        font-size: 14px;
+    }
+    .zh_article_container .zhitem:hover img{
+        transform:scale(1.2);
+    }
+    .zh_article_container .pagination{
+        max-width: 1200px;
+        width: 100%;
+    }
+    .zh_article_container .paging {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .zh_article_container .paging li {
+        background-color: #DBDBDB ;
+        font-size: 6px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    .zh_article_container .paging li a{
+        color:#333;
+    }
+    .zh_article_container  .paging li span:hover{
+        color:#fff;
+    }
+    .zh_article_container  .paging li a:hover{
+        color:#fff;
+    }
+    .zh_article_container  .paging li:hover{
+        background-color: #e9bd4b;
+    }
+    .zh_article_container  .pagination li>a#previousPage{
+        margin-right: unset!important;
+    }
+    .zh_article_container  .pagination li>a#nextPage{
+        margin-left: unset!important;
+    }
+    @media screen and (min-width:1180px){
+        .zh_article_container  .zh .zhitem .ArticlePicList_ItemContentInner{
+                            width:280px;
+                        }
+                        .zh_article_container  .zh .zhitem  .imgcontainer{
+            width:280px;
+        }
+        .zh_article_container  .zh .zhitem .imgcontainer{
+        height:140px;
+    }
+}
+    @media screen and (max-width:1196px){
+        .zh_article_container .zh .zhitem{
+                        width: 25%;
+                        padding:0;
+                    }
+                }
+                @media screen and (max-width:1180px) and (min-width:960px){
+                    .zh_article_container .ArticlePicList_ItemContent{
+                                padding: 5px;
+                            }
+                            .zh_article_container .zh .zhitem{
+                    width: 25%;
+                    padding:0;
+                }
+                .zh_article_container  .zh .zhitem .ArticlePicList_ItemContentInner {
+        background-color: white;
+        border-radius: 10px;
+        height: 100%;
+    }
+    .zh_article_container  .zh .zhitem .imgcontainer img {
+        height:100%;
+        position:absolute;
+    }
+    .zh_article_container  .zh .zhitem .imgcontainer{
+        width:100%;
+        padding-bottom:50%;
+        height:0;
+    }
+}
+    @media screen and (max-width:960px) and (min-width:700px){
+        .zh_article_container .ArticlePicList_ItemContent{
+                    padding: 30px;
+                }
+                .zh_article_container .zh .zhitem{
+        width: 50%;
+        padding:0;
+    }
+    .zh_article_container  .zh .zhitem .imgcontainer img {
+        height:100%;
+        position:absolute;
+    }
+    .zh_article_container  .zh .zhitem .imgcontainer{
+        width:100%;
+        padding-bottom:50%;
+        height:0;
+    }
+}
+    @media screen and (max-width:700px) and (min-width:500px){
+        .zh_article_container .ArticlePicList_ItemContent{
+                    padding: 10px;
+                }
+                .zh_article_container .zh .zhitem{
+        width: 50%;
+        padding:0;
+    }
+    .zh_article_container  .zh .zhitem .imgcontainer img {
+        height:100%;
+        position:absolute;
+    }
+    .zh_article_container  .zh .zhitem .imgcontainer{
+        width:100%;
+        padding-bottom:50%;
+        height:0;
+    }
+}
+    @media screen and (max-width:500px){
+        .zh_article_container{
+                background-color: white;
+            }
+            .zh_article_container .zh .zhitem{
+        margin: 0 auto;
+        width: 90%;
+        padding: 20px 0px;
+        border-bottom: 1px solid #e5e5e5;
+        border-radius: 0px;
+    }
+    .zh_article_container .zh  .zhitem .ArticlePicList_ItemContent{
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        padding: 0;
+    }
+    .zh_article_container .zh .zhitem .ArticlePicList_ItemContentInner {
+        background-color: white;
+        border-radius: 0;
+        height: unset;
+    }
+    .zh_article_container  .zh .zhitem .imgcontainer {
+        position: relative;
+        border-radius: 0px;
+        width: 35%;
+        height:70px;
+        float: left;
+        overflow:hidden;
+    }
+    .zh_article_container .zh .zhitem .wzbq {
+        display:none;
+    }
+    .zh_article_container .zh .zhitem .wzbqT{
+        display: inline-block;
+        padding:2px;
+        margin-left: 15px;
+        height: 14px;
+        line-height: 14px;
+        font-size: 10px;
+        text-align: center;
+        color:#FFFFFF;
+        background-color:#E9BD4B;
+    }
+    .zh_article_container .zh .zhitem .imgcontainer img {
+        width: 100%;
+        transition: all 12s;
+        height: 100%;
+    }
+    .zh_article_container .zh .zhitem .banner-description{
+        border-radius: 0px;
+        padding:0;
+        min-height: unset;
+        width:65%;
+        float:left;
+    }
+    .zh_article_container .title_container {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        transition: all .6s;
+        color: #333;
+        font-family: ArialMT;
+        font-size: 10px;
+        padding-top: 10px;
+        margin-left: 15px;
+        line-height: 13px;
+    }
+    .zh_article_container .zhitem-name {
+        color: #333;
+        font-size: 12px;
+        transition: all .6s;
+        padding-top: 6px;
+    }
+    .zh_article_container .zhitem-docs{
+        display:none;
+    }
+    .zh_article_container .ArticlePicList_ItemContentInnerA{
+        display:none;
+    }
+}</style>

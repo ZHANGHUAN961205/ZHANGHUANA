@@ -1,0 +1,103 @@
+[#assign color0 = '#E9BD4B']
+[#assign color1 = '#FFFFFF']
+
+[#if componentBlock.blockStyleClass??]
+    [#if componentBlock.blockStyleClass.colorVal0?? ]
+        [#assign color0 = componentBlock.blockStyleClass.colorVal0 /]
+    [/#if]
+	[#if componentBlock.blockStyleClass.colorVal1?? ]
+        [#assign color1 = componentBlock.blockStyleClass.colorVal1 /]
+    [/#if]
+ [/#if]
+
+[@web_frontend]
+
+[@web_style collect="true" pm_script="${settingId!}" jumpTo="${settingId!}"]  
+#siteblocks-setting-wrap-${settingId!} .zh_article_container .zh .zhitem .wzbq{ background-color:${color0!}}
+#siteblocks-setting-wrap-${settingId!} .zh_article_container .zh .zhitem .wzbqT{ background-color:${color0!}}
+#siteblocks-setting-wrap-${settingId!} .zh_article_container .zh .zhitem .bqwz{ color:${color1!}}
+#siteblocks-setting-wrap-${settingId!} .zh_article_container .ArticlePicList_ItemContentInnerA span{color:${color2!}}
+#siteblocks-setting-wrap-${settingId!} .zh_article_container .ArticlePicList_ItemContentInnerH5 .title_container{color:${color3!}}
+#siteblocks-setting-wrap-${settingId!} .zh_article_container .paging li:hover {background-color:${color4!}}
+#siteblocks-setting-wrap-${settingId!} .zh_article_container .paging li span:hover{color:${color1!}}
+#siteblocks-setting-wrap-${settingId!} .zh_article_container .paging li a:hover{color:${color1!}}
+[/@web_style]
+[/@web_frontend]
+[@web_backend]<i data-blocksetting-color="{'background-color':'colorVal-4-${color4!}'}"></i> [/@web_backend]
+<div class="Article_Container zh_article_container">
+    <div class="backstage-blocksEditor-wrap zh" data-wrap-type="1" data-relate-appId="PDpUKAfUKZcV" data-storage="1" data-blocksEditor-type="phoenix_blocks_article" data-auto_uuid=28bdc4e9-640f-4b5e-9db9-cf077d5a9dd7>[@table_select selectArticleCateType="${selectArticleCateType!'1'}" showType="${showType!'0'}" pageNum="${pageNum!'1'}" displayMode="${displayMode!'0'}" listScroll="0" selectCateIds="${articleCate_ids!''}" cateId="${infoGroupId!''}" paginationFlag="1" pageSize="${pageSize!'20'}" serviceName="phoenixArticleService" showUnCate="${showUnCate!''}" searchArticleValue="${searchArticleValue!''}" keyword="${keyword!''}"]    [#if table_data??]        [#list table_data as article ]            
+        <div class="ArticlePicList_Item zhitem">
+            <div class="ArticlePicList_ItemContent">
+                <div class="ArticlePicList_ItemContentInner">
+                    <div>
+                        <div class="imgcontainer">
+                              [#if article.cateName??]
+                            <div class="wzbq"  [@web_backend]data-blocksetting-color="{'background-color':'colorVal-0-${color0!}'}"[/@web_backend]>
+                                <a class="bqwz" [@web_backend]data-blocksetting-color="{'color':'colorVal-1-${color1!}'}"[/@web_backend] >  ${article.cateName!''} </a>
+                            </div>
+                            [/#if]
+                            <img class="headlines-content-img ArticlePicList_ItemImg" src="[@pic_url src='${article.photoUrlNormal!}' width='460' height='460'][/@pic_url]" alt="${article.photoAlt!?html}">
+                        </div>
+                    </div>
+                    <div class="ArticlePicList_ItemContentInnerBox banner-description">
+                         [#if article.cateName??]
+                        <div class="wzbqT"  [@web_backend]data-blocksetting-color="{'background-color':'colorVal-0-${color0!}'}"[/@web_backend]>
+                               <a class="bqwz"  [@web_backend]data-blocksetting-color="{'color':'colorVal-1-${color1!}'}"[/@web_backend]> ${article.cateName!''}</a>
+                            </div>
+                         [/#if]
+                        <h5 class="ArticlePicList_ItemContentInnerH5 title_container" [@web_backend]data-blocksetting-color="{'color':'colorVal-2-${color2!}'}"[/@web_backend] >
+                            [@phoenix_url urlType="info" commonId="${article.articleId}" prefixUrl="${article.articleTitle}" ]                                    
+                            <a href="${url}"  title="${article.articleTitle!?html}" class="zhitem-name">
+                                ${article.articleTitle!?html}
+                            </a>
+                            [/@phoenix_url]                            
+                        </h5>
+                        <p class="articleList-summary ArticlePicList_ItemContentInnerP zhitem-docs"  [@web_backend]data-blocksetting-color="{'color':'colorVal-3-${color3!}'}"[/@web_backend]>
+                            ${article.articleSummary!''}
+                        </p>
+                        [@phoenix_url urlType="info" commonId="${article.articleId}" prefixUrl="${article.articleTitle}" ]
+                        <a class="ArticlePicList_ItemContentInnerA" href="${url}">
+                            <span [@s.m "phoenix_learn_more"/] [@web_backend]data-blocksetting-color="{'color':'colorVal-2-${color2!}'}"[/@web_backend]>
+                                LEARN MORE
+                            </span>
+                        </a>
+                        [/@phoenix_url]
+                    </div>
+                </div>
+            </div>
+        </div>
+        [/#list]
+       <div class="pagination" >
+          [@pagination pageClass="paging" noFollowFlag="${noFollowFlag!'0'}" currentPage="${(pageNum!1)?number}"  totalRecord="${totalRecord!'0'}" pageSize="${pageSize!'20'}" settingId="${settingId!''}" pageAjax="0" jumpFlag="0" ajaxFunctionName="jumpCouponPageNum" ajaxParam=""/] 
+           </div>
+            <script>
+function jumpCouponPageNum(settingId, pageNum, ajaxParam){
+     	getUserCoupon(pageNum);
+     }
+function getUserCoupon(pageNum){
+     	if(pageNum == undefined){
+     		pageNum = '1';
+        }
+		var ajaxUrl = '/phoenix/admin/component/dynamic/node/${settingId!"1"}/${nodeId!"2"}/${appId!"3"}';
+		var ajaxOption = {
+			url: ajaxUrl,
+			type: 'post',
+			cache: false,
+			data: {
+				appIsDev: '${appIsDev!"0"}',
+                pageNum: pageNum
+			},
+			dataType: 'html'
+		}
+		$.ajax(ajaxOption).done(function(response, textStatus, jqXHR) {
+	       $('#siteblocks-setting-wrap-${settingId!}  .zh').html(response);
+	    }).always(function(response, textStatus, jqXHR) {
+	    });
+	 }
+        </script>
+        [#else]        [@web_backend]            [@phoenix_directive_i18n code="component_cont_txt_article_list_new" es="false" txt="
+        <p>
+            请进入“内容”》“文章管理”》“添加文章”，进行文章数据的添加，添加好的文章会自动展示出来。
+        </p>
+        "/]        [/@web_backend]    [/#if] [/@table_select]</div>
+</div>
